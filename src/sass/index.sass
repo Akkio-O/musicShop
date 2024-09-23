@@ -1,0 +1,35 @@
+// default
+body
+	background: rgba(234, 234, 234, 1)
+*
+	box-sizing: border-box
+.cursorPointer
+	cursor: pointer
+.scroll
+	overflow-y: auto
+
+	&::-webkit-scrollbar
+		width: 12px
+
+	&::-webkit-scrollbar-track
+		background: #1e1e1e
+
+	&::-webkit-scrollbar-thumb
+		background-color: white
+		border-radius: 1px
+
+// page
+.container
+	max-width: 1500px
+	margin: 0 auto
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	height: 100vh
+
+@import './header/header'
+@import './header/cart'
+@import './form'
+@import './section/productCard'
+@import './footer'
+@import './modal'

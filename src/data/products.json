@@ -1,0 +1,23 @@
+[
+	{
+		"id": 1,
+		"name": "Наушники",
+		"product": [
+			{ "id": 1, "name": "Apple BYZ S852I", "rating": 4.5, "price": 2927, "image": "./assets/Наушники/Apple BYZ S852I.png", "category": "Наушники" },
+			{ "id": 2, "name": "Apple EarPods", "rating": 4.5, "price": 2327, "image": "./assets/Наушники/Apple EarPods1.png", "category": "Наушники" },
+			{ "id": 3, "name": "Apple EarPods Pro", "rating": 4.5, "price": 3527, "image": "./assets/Наушники/Apple EarPods2.png", "category": "Наушники" },
+			{ "id": 4, "name": "Apple BYZ S852I", "rating": 4.5, "price": 2927, "image": "./assets/Наушники/Apple BYZ S852I.png", "category": "Наушники" },
+			{ "id": 5, "name": "Apple EarPods", "rating": 4.5, "price": 2327, "image": "./assets/Наушники/Apple EarPods1.png", "category": "Наушники" },
+			{ "id": 6, "name": "Apple EarPods Pro", "rating": 4.5, "price": 3527, "image": "./assets/Наушники/Apple EarPods2.png", "category": "Наушники" }
+		]
+	},
+	{
+		"id": 2,
+		"name": "Беспроводные наушники",
+		"product": [
+			{ "id": 1, "name": "Apple AirPods", "price": 3527, "rating": 4.7, "image": "./assets/Беспроводные наушники/Apple AirPods.png", "category": "Беспроводные наушники" },
+			{ "id": 2, "name": "BOROFONE BO4", "price": 3527, "rating": 4.7, "image": "./assets/Беспроводные наушники/BOROFONE BO4.png", "category": "Беспроводные наушники" },
+			{ "id": 3, "name": "GERLAX GH-04", "price": 3527, "rating": 4.7, "image": "./assets/Беспроводные наушники/GERLAX GH-04.png", "category": "Беспроводные наушники" }
+		]
+	}
+]

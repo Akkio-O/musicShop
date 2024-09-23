@@ -1,0 +1,32 @@
+$primary-color: rgba(82, 127, 223, 0.799)
+$hover-bg-color: black
+$hover-text-color: white
+$placeholder-text-color: white
+
+// hierarch
+.regForm, .logForm, .regForm__wrapper, .logForm__wrapper
+	display: flex
+	flex-direction: column
+	align-items: center
+	.regForm__wrapper, .logForm__wrapper
+		padding: 50px
+		border-radius: 15px
+		background-color: $primary-color
+		gap: 1dvh
+		// input state
+		input
+			padding: 10px
+			border: none
+			border-radius: 15px
+			box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2)
+			cursor: pointer
+			transition: .7s
+			&:hover
+				background-color: $hover-bg-color
+				color: $hover-text-color
+				&::placeholder
+					transition: .8s
+					color: $placeholder-text-color
+			&:focus-visible
+				outline: 2px solid rgba(23, 108, 182, 0.5)
+				outline-offset: 2px
