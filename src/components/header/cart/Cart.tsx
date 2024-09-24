@@ -6,7 +6,7 @@ import { removeFromCart } from './CartAction';
 
 // components
 import CartItem from './CartItems';
-import OrderRegistration from './OrderRegistration';
+import OrderRegistration from './orderRegistration/OrderRegistration';
 
 // icon
 // contenent

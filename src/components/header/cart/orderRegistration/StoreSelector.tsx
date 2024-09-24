@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { addToMap } from './OrderRegAction';
 
 // functions
-import { loadYandexMaps } from '../../../common/Delivery/yaMaps';
+import { loadYandexMaps } from '../../../../common/Delivery/yaMaps';
 
 // styles
 const mapContainerStyle = {
@@ -50,8 +50,8 @@ export function StoreSelector({ style }: { style: React.CSSProperties }) {
 	}, []);
 
 	useEffect(() => {
-		if (!open) return; // Если модал закрыт, выходим
-		if (map) return; // Если карта уже создана, выходим
+		if (!open) return;
+		if (map) return;
 	
 		const apiKey = 'ВАШ_API_КЛЮЧ';
 	

@@ -9,7 +9,7 @@ import SelectedStore from './SelectedStore';
 // components
 
 // types
-import { RootState, CartItemWithCount } from './typesCart';
+import { RootState, CartItemWithCount } from '../typesCart';
 
 
 const style: React.CSSProperties = {

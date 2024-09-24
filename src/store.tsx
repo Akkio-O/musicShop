@@ -1,6 +1,6 @@
 import { createStore, combineReducers } from 'redux';
 import cartReducer from './components/header/cart/CartReducer';
-import orderRegReducer from './components/header/cart/OrderRegReducer';
+import orderRegReducer from './components/header/cart/orderRegistration/OrderRegReducer';
 
 const routerReducer = combineReducers({
 	cart: cartReducer,
