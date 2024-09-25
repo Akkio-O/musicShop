@@ -1,5 +1,5 @@
-// React Tools 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+// React Tools
+import { Route, Routes } from "react-router-dom"
 
 // types
 import { Category, InputData } from "./types";
@@ -23,20 +23,18 @@ import inputData from "./data/inputData.json";
 const typedInputData: InputData[] = inputData;
 const typedProducts: Category[] = products;
 
+// component
 export default function App() {
 	return (
 		<div className="container">
-			<Router>
-				<Header />
-				<Routes>
-					{/* <Route path="*" element={<NotFound />} /> */}
-					<Route path="/" element={<Products products={typedProducts} />} />
-					<Route path="/musicShop/login" element={<Login inputData={typedInputData} />} />
-					<Route path="/musicShop/register" element={<Register inputData={typedInputData} />} />
-					<Route path="/musicShop/cart" element={<Cart />} />
-				</Routes>
-				<Footer />
-			</Router>
+			<Header />
+			<Routes>
+				<Route path='/musicShop/' element={<Products products={typedProducts} />} />
+				<Route path='/login' element={<Login inputData={typedInputData} />} />
+				<Route path='/register' element={<Register inputData={typedInputData} />} />
+				<Route path='/cart' element={<Cart />} />
+			</Routes>
+			<Footer />
 		</div>
 	)
 }
