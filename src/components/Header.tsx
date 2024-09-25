@@ -1,6 +1,4 @@
-import { BrowserRouter as Router, Link } from "react-router-dom"
-
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import Badge, { BadgeProps } from '@mui/material/Badge';
@@ -32,25 +30,23 @@ export default function Header() {
 		<header className="header">
 			<h1>QPICK</h1>
 			<nav className='header__wrapper'>
-				<Router basename={process.env.PUBLIC_URL}>
-					<Link className="links" to='/login'>Авторизация</Link>
-					<Link className="links" to='/register'>Регистрация</Link>
-					<Link className="links" to='/'>Категория</Link>
-					<Link to='/favorites'>
-						<IconButton aria-label="favorite">
-							<StyledBadge badgeContent={4} color="secondary">
-								<Favorite />
-							</StyledBadge>
-						</IconButton>
-					</Link>
-					<Link to='/cart'>
-						<IconButton aria-label="cart">
-							<StyledBadge badgeContent={cartItems.length} color="secondary">
-								<ShoppingCart />
-							</StyledBadge>
-						</IconButton>
-					</Link>
-				</Router>
+				<Link className="links" to='/login'>Авторизация</Link>
+				<Link className="links" to='/register'>Регистрация</Link>
+				<Link className="links" to='/'>Категория</Link>
+				<Link to='/favorites'>
+					<IconButton aria-label="favorite">
+						<StyledBadge badgeContent={4} color="secondary">
+							<Favorite />
+						</StyledBadge>
+					</IconButton>
+				</Link>
+				<Link to='/cart'>
+					<IconButton aria-label="cart">
+						<StyledBadge badgeContent={cartItems.length} color="secondary">
+							<ShoppingCart />
+						</StyledBadge>
+					</IconButton>
+				</Link>
 			</nav>
 		</header>
 	)
