@@ -30,9 +30,9 @@ export default function App() {
 			<Header />
 			<Routes>
 				<Route path='/musicShop/' element={<Products products={typedProducts} />} />
-				<Route path='/login' element={<Login inputData={typedInputData} />} />
-				<Route path='/register' element={<Register inputData={typedInputData} />} />
-				<Route path='/cart' element={<Cart />} />
+				<Route path='/musicShop/login' element={<Login inputData={typedInputData} />} />
+				<Route path='/musicShop/register' element={<Register inputData={typedInputData} />} />
+				<Route path='/musicShop/cart' element={<Cart />} />
 			</Routes>
 			<Footer />
 		</div>
