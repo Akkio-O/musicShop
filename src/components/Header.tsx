@@ -30,9 +30,9 @@ export default function Header() {
 		<header className="header">
 			<h1>QPICK</h1>
 			<nav className='header__wrapper'>
-				<Link className="links" to='/login'>Авторизация</Link>
-				<Link className="links" to='/register'>Регистрация</Link>
-				<Link className="links" to='/'>Категория</Link>
+				<Link className="links" to='/musicShop/login'>Авторизация</Link>
+				<Link className="links" to='/musicShop/register'>Регистрация</Link>
+				<Link className="links" to='/musicShop/'>Категория</Link>
 				<Link to='/favorites'>
 					<IconButton aria-label="favorite">
 						<StyledBadge badgeContent={4} color="secondary">
