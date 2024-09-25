@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { loadYandexMaps } from '../../../../common/Delivery/yaMaps';
 import { Typography } from '@mui/material';
@@ -10,19 +10,26 @@ const mapContainerStyle = {
 };
 
 export default function SelectedMap() {
-	const [map, setMap] = useState<any>(null);
+	const mapRef = useRef<any>(null);
 	const selectedMap = useSelector((state: any) => state.orderReg.map);
 	const apiKey = 'ВАШ_API_КЛЮЧ';
-
 	useEffect(() => {
 		if (selectedMap) {
 			loadYandexMaps(apiKey)
 				.then(() => {
 					const ymaps = window.ymaps;
 
+					if (mapRef.current && mapRef.current.getCenter().equals(selectedMap.coords)) {
+						return;
+					}
+
 					const mapContainer = document.getElementById('yandex-map');
-					if (mapContainer) {mapContainer.innerHTML = ''}
-					map && map.destroy();
+					if (mapContainer) {
+						mapContainer.innerHTML = '';
+					}
+					if (mapRef.current) {
+						mapRef.current.destroy();
+					}
 
 					const newMap = new ymaps.Map('yandex-map', {
 						center: selectedMap.coords,
@@ -34,16 +41,15 @@ export default function SelectedMap() {
 					});
 					newMap.geoObjects.add(placemark);
 
-					setMap(newMap);
+					mapRef.current = newMap;
 				})
 				.catch(err => {
 					console.error('Ошибка загрузки карты:', err);
 				});
 		}
-
 		return () => {
-			if (map) {
-				map.destroy();
+			if (mapRef.current) {
+				mapRef.current.destroy();
 			}
 		};
 	}, [selectedMap, apiKey]);

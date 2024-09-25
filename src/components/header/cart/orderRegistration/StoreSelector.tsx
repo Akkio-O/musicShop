@@ -22,6 +22,9 @@ const branches = [
 	{ id: 1, name: 'ТЦ "Европа"', address: 'ул. 20-летия Октября, 123', availability: true, openNow: true, coords: [51.6558, 39.2003] },
 	{ id: 2, name: 'Склад на Лизюкова', address: 'ул. Генерала Лизюкова, 50', availability: true, openNow: false, coords: [51.672, 39.1845] },
 	{ id: 3, name: 'Магазин-склад', address: 'ул. Патриотов, дом 57', availability: false, openNow: true, coords: [51.6933, 39.1982] },
+	{ id: 4, name: 'ТРК "Сити-парк Град"', address: 'Рамонский район, пос. Солнечный, улица Парковая, 3', availability: false, openNow: true, coords: [51.788103,39.204201] },
+	{ id: 5, name: 'ТРЦ "Галерея Чижова"', address: 'ул. Кольцовская, 35', availability: false, openNow: true, coords: [51.667194,39.191861] },
+	{ id: 6, name: 'ТК "Воронежский"', address: 'Московский проспект, 90/1', availability: false, openNow: true, coords: [51.717608,39.181782] },
 ];
 
 export function StoreSelector({ style }: { style: React.CSSProperties }) {
@@ -45,6 +48,10 @@ export function StoreSelector({ style }: { style: React.CSSProperties }) {
 
 	const handleOpen = useCallback(() => { setOpen(true); }, []);
 	const handleClose = useCallback(() => {
+		console.log(selectedBranch);
+		if (selectedBranch) {
+			handleMapSelect(selectedMap);
+		}
 		setOpen(false);
 		setMap(null);
 	}, []);
@@ -52,9 +59,9 @@ export function StoreSelector({ style }: { style: React.CSSProperties }) {
 	useEffect(() => {
 		if (!open) return;
 		if (map) return;
-	
+
 		const apiKey = 'ВАШ_API_КЛЮЧ';
-	
+
 		loadYandexMaps(apiKey)
 			.then(() => {
 				const ymaps = window.ymaps;
@@ -62,7 +69,7 @@ export function StoreSelector({ style }: { style: React.CSSProperties }) {
 					center: [51.665, 39.2026], // Координаты Воронежа
 					zoom: 12,
 				});
-	
+
 				branches.forEach(branch => {
 					const placemark = new ymaps.Placemark(branch.coords, {
 						balloonContent: branch.name,
@@ -72,7 +79,7 @@ export function StoreSelector({ style }: { style: React.CSSProperties }) {
 					});
 					newMap.geoObjects.add(placemark);
 				});
-	
+
 				setMap(newMap);
 			})
 			.catch(err => {
@@ -97,7 +104,7 @@ export function StoreSelector({ style }: { style: React.CSSProperties }) {
 				aria-labelledby="store-selector-modal-title"
 				aria-describedby="store-selector-modal-description"
 			>
-				<Box sx={{ ...style, width: 1200, borderRadius: '30px', p: 4 }}>
+				<Box className="scroll" sx={{ ...style, width: 1200, borderRadius: '30px 0 0 30px', p: 4 }}>
 					<div className='modal__header'>
 						<h2 id="child-modal-title">Карта</h2>
 						<Button onClick={handleClose}>X</Button>
@@ -141,7 +148,7 @@ export function StoreSelector({ style }: { style: React.CSSProperties }) {
 							/>
 						</Grid>
 
-						<Grid item xs={12} md={6} style={{ maxHeight: '600px', overflowY: 'scroll' }}>
+						<Grid className="scroll" item xs={12} md={6} style={{ maxHeight: '600px', overflowY: 'scroll' }}>
 							{filteredBranches.map(branch => (
 								<Box key={branch.id} sx={{ mb: 2, p: 2, border: '1px solid #ccc', borderRadius: '10px' }}>
 									<Typography variant="h6">{branch.name}</Typography>
@@ -151,15 +158,21 @@ export function StoreSelector({ style }: { style: React.CSSProperties }) {
 										variant={selectedBranch === branch.name ? "contained" : "outlined"}
 										color="primary"
 										onClick={() => {
-											setSelectedBranch(branch.name);
-											handleMapSelect(branch);
-											handleClose();
+											console.log(selectedMap?.id)
+											if (selectedMap?.id === branch.id) {
+												console.log('true')
+												handleClose();
+											} else {
+												console.log('false')
+												setSelectedBranch(branch.name);
+												handleMapSelect(branch);
+												handleClose();
+											}
 										}}
 										sx={{ mt: 2 }}
 									>
 										{selectedBranch === branch.name ? 'Выбран' : 'Выбрать'}
 									</Button>
-
 								</Box>
 							))}
 						</Grid>
