@@ -30,10 +30,10 @@ export default function App() {
 				<Header />
 				<Routes>
 					{/* <Route path="*" element={<NotFound />} /> */}
-					<Route path='/' element={<Products products={typedProducts} />} />
-					<Route path='/login' element={<Login inputData={typedInputData} />} />
-					<Route path='/register' element={<Register inputData={typedInputData} />} />
-					<Route path='/cart' element={<Cart />} />
+					<Route path="/musicShopw/" element={<Products products={typedProducts} />} />
+					<Route path="/musicShopw/login" element={<Login inputData={typedInputData} />} />
+					<Route path="/musicShopw/register" element={<Register inputData={typedInputData} />} />
+					<Route path="/musicShopw/cart" element={<Cart />} />
 				</Routes>
 				<Footer />
 			</Router>
