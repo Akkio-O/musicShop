@@ -1,20 +1,28 @@
+//default
+@mixin link
+	padding: 8px
+	border: none
+	border-radius: 15px
+	text-decoration: none
+	color: inherit
+	transition: .5s
+
+// section
 .header
 	display: flex
 	justify-content: space-between
+	margin: 15px 0
 	&__wrapper
 		margin: 20px
 		display: flex
 		gap: 2vw
 .links
-	text-decoration: none
+	@include link
 	background-color: white
-	color: inherit
-	padding: 8px
-	border: none
-	border-radius: 15px
 	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2)
-	transition: .5s
 	&:hover
 		color: white
 		background: black
 		box-shadow: 5px 5px 10px rgba(30, 62, 26, 0.2)
+.linkIcon
+	@include link

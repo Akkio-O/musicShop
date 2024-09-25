@@ -28,7 +28,7 @@ export default function Header() {
 	const cartItems = useSelector((state: RootState) => state.cart.cartItems as CartItemWithCount[]);
 	return (
 		<header className="header">
-			<h1>QPICK</h1>
+			<h1><Link className="links" to="/musicShop/">QPICK</Link></h1>
 			<nav className='header__wrapper'>
 				<Link className="links" to='/musicShop/login'>Авторизация</Link>
 				<Link className="links" to='/musicShop/register'>Регистрация</Link>
@@ -40,7 +40,7 @@ export default function Header() {
 						</StyledBadge>
 					</IconButton>
 				</Link>
-				<Link to='/cart'>
+				<Link to='/musicShop/cart'>
 					<IconButton aria-label="cart">
 						<StyledBadge badgeContent={cartItems.length} color="secondary">
 							<ShoppingCart />
