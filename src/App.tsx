@@ -23,8 +23,9 @@ import inputData from "./data/inputData.json";
 const typedInputData: InputData[] = inputData;
 const typedProducts: Category[] = products;
 
-// component
 export default function App() {
+	console.log("work");
+	console.log("Basename:", process.env.PUBLIC_URL);
 	return (
 		<div className="container">
 			<Router basename={process.env.PUBLIC_URL}>
