@@ -30,7 +30,7 @@ export default function App() {
 				<Header />
 				<Routes>
 					{/* <Route path="*" element={<NotFound />} /> */}
-					<Route path="/musicShop/" element={<Products products={typedProducts} />} />
+					<Route path="/" element={<Products products={typedProducts} />} />
 					<Route path="/musicShop/login" element={<Login inputData={typedInputData} />} />
 					<Route path="/musicShop/register" element={<Register inputData={typedInputData} />} />
 					<Route path="/musicShop/cart" element={<Cart />} />
