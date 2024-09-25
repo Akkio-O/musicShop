@@ -26,7 +26,7 @@ const typedProducts: Category[] = products;
 export default function App() {
 	return (
 		<div className="container">
-			<Router basename={process.env.PUBLIC_URL}>
+			<Router>
 				<Header />
 				<Routes>
 					{/* <Route path="*" element={<NotFound />} /> */}
