@@ -44,17 +44,17 @@ export function StoreSelector({ style }: { style: React.CSSProperties }) {
 
 	const handleMapSelect = useCallback((selectedMap: any) => {
 		dispatch(addToMap(selectedMap));
-	}, [dispatch]);
+	  }, [dispatch]);
 
 	const handleOpen = useCallback(() => { setOpen(true); }, []);
 	const handleClose = useCallback(() => {
 		console.log(selectedBranch);
 		if (selectedBranch) {
-			handleMapSelect(selectedMap);
+		  handleMapSelect(selectedMap);
 		}
 		setOpen(false);
 		setMap(null);
-	}, []);
+	  }, [selectedBranch, selectedMap, handleMapSelect]);
 
 	useEffect(() => {
 		if (!open) return;
