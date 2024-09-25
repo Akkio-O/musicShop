@@ -1,5 +1,5 @@
 // React Tools 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 
 // types
 import { Category, InputData } from "./types";
@@ -24,20 +24,17 @@ const typedInputData: InputData[] = inputData;
 const typedProducts: Category[] = products;
 
 export default function App() {
-	console.log("work");
-	console.log("Basename:", process.env.PUBLIC_URL);
 	return (
 		<div className="container">
-			<Router basename={process.env.PUBLIC_URL}>
 				<Header />
 				<Routes>
+					{/* <Route path="*" element={<NotFound />} /> */}
 					<Route path='/' element={<Products products={typedProducts} />} />
 					<Route path='/login' element={<Login inputData={typedInputData} />} />
 					<Route path='/register' element={<Register inputData={typedInputData} />} />
 					<Route path='/cart' element={<Cart />} />
 				</Routes>
 				<Footer />
-			</Router>
 		</div>
 	)
 }
